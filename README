@@ -1,16 +1,21 @@
 Filesys-Btrfs
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+Simple wrapper around Linux C<btrfs> util. Btrfs util is used to
+manage btrfs filesystem: manage snapshots, subvolumes and etc.  Only
+subset of C<btrfs> options is supported (hopefuly it is useful
+subset).
 
-A README file is required for CPAN modules since CPAN extracts the README
-file from a module distribution so that people browsing the archive
-can use it to get an idea of the module's uses. It is usually a good idea
-to provide version information here so that people can decide whether
-fixes for the module are worth downloading.
+For more information about C<btrfs> util please see L<btrfs> manpage.
 
+B<WARNING> This module is hightly experimental (as btrfs itself). API
+can change in the future.
+
+Example:
+
+    use Filesys::Btrfs;
+
+    my $btrfs = Filesys::Btrfs->new($mount_point);
+    $btrfs->subvolume_create('subvolume');
 
 INSTALLATION
 
@@ -20,6 +25,9 @@ To install this module, run the following commands:
 	make
 	make test
 	make install
+
+Note: due to nature of the module most of tests cannot be run if user is not root,
+'sudo make test' should make sure that module is working fine.
 
 SUPPORT AND DOCUMENTATION
 

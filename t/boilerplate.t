@@ -1,6 +1,6 @@
 #!perl -T
 
-use 5.006;
+use 5.10.1;
 use strict;
 use warnings;
 use Test::More tests => 3;
@@ -37,8 +37,8 @@ sub module_boilerplate_ok {
     );
 }
 
-TODO: {
-  local $TODO = "Need to replace the boilerplate text";
+#TODO: {
+#  local $TODO = "Need to replace the boilerplate text";
 
   not_in_file_ok(README =>
     "The README is used..."       => qr/The README is used/,
@@ -50,7 +50,5 @@ TODO: {
   );
 
   module_boilerplate_ok('lib/Filesys/Btrfs.pm');
-
-
-}
+#}
 
