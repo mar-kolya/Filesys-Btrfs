@@ -39,7 +39,9 @@ unless(-x Filesys::Btrfs::BTRFS_CMD()) {
 
 #cleanup
 END {
-    system('/bin/umount', $btrfs_mount);
+    try {
+        system('/bin/umount', $btrfs_mount);
+    };
 }
 
 diag("Testing Filesys::Btrfs $Filesys::Btrfs::VERSION, Perl $], $^X");
