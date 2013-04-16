@@ -13,8 +13,6 @@ Filesys::Btrfs - Simple wrapper around Linux L<btrfs> util.
 
 =head1 VERSION
 
-Version 0.01
-
 =cut
 
 our $VERSION = '0.03';
